@@ -12,7 +12,7 @@
 
 A powerful, Flutter-inspired Terminal User Interface framework for building beautiful command-line applications in Dart.
 
-![Nocterm Demo](https://github.com/Norbert515/nocterm/blob/main/doc/assets/demo.mp4)
+![Nocterm Demo](doc/assets/demo.gif)
 
 ## ✨ Features
 
