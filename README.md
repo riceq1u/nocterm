@@ -161,7 +161,7 @@ void main() {
 
 This is a very early release and things are still very unstable.
 
-- Hot reload is cause layout glitches (a restart fixes it)
+- Hot reload may cause layout glitches (a restart fixes it)
 
 ## 🤝 Contributing
 
