@@ -103,22 +103,31 @@ class Align extends SingleChildRenderObjectComponent {
   const Align({
     super.key,
     this.alignment = Alignment.center,
+    this.widthFactor,
+    this.heightFactor,
     this.child,
   });
 
   final AlignmentGeometry alignment;
+  final double? widthFactor;
+  final double? heightFactor;
   final Component? child;
 
   @override
   RenderObject createRenderObject(BuildContext context) {
     return RenderPositionedBox(
       alignment: alignment,
+      widthFactor: widthFactor,
+      heightFactor: heightFactor,
     );
   }
 
   @override
   void updateRenderObject(BuildContext context, RenderPositionedBox renderObject) {
-    renderObject.alignment = alignment;
+    renderObject
+      ..alignment = alignment
+      ..widthFactor = widthFactor
+      ..heightFactor = heightFactor;
   }
 }
 
@@ -520,9 +529,13 @@ class RenderPadding extends RenderObject with RenderObjectWithChildMixin<RenderO
 class RenderPositionedBox extends RenderObject with RenderObjectWithChildMixin<RenderObject> {
   RenderPositionedBox({
     required this.alignment,
+    this.widthFactor,
+    this.heightFactor,
   });
 
   AlignmentGeometry alignment;
+  double? widthFactor;
+  double? heightFactor;
 
   @override
   void setupParentData(RenderObject child) {
@@ -536,9 +549,29 @@ class RenderPositionedBox extends RenderObject with RenderObjectWithChildMixin<R
     // Layout child with loosened constraints so it can be smaller
     child?.layout(constraints.loosen(), parentUsesSize: true);
 
-    // Calculate our size first
-    final double width = constraints.hasBoundedWidth ? constraints.maxWidth : child?.size.width ?? 0.0;
-    final double height = constraints.hasBoundedHeight ? constraints.maxHeight : child?.size.height ?? 0.0;
+    // Calculate our size based on widthFactor and heightFactor
+    // This matches Flutter's RenderPositionedBox behavior
+    final double width;
+    final double height;
+    
+    if (child == null) {
+      // No child - size to constraints
+      width = constraints.hasBoundedWidth ? constraints.maxWidth : 0.0;
+      height = constraints.hasBoundedHeight ? constraints.maxHeight : 0.0;
+    } else {
+      // With child - use factors to determine size
+      if (widthFactor != null || heightFactor != null) {
+        // If factors are provided, use child size multiplied by factors
+        width = widthFactor == null ? child!.size.width : widthFactor! * child!.size.width;
+        height = heightFactor == null ? child!.size.height : heightFactor! * child!.size.height;
+      } else {
+        // No factors (null) - shrink to child size (Flutter's default behavior)
+        // This is the key fix: we shrink to child size instead of expanding
+        width = child!.size.width;
+        height = child!.size.height;
+      }
+    }
+    
     size = constraints.constrain(Size(width, height));
 
     // Calculate and store the child's position in parent data
@@ -564,15 +597,21 @@ class RenderPositionedBox extends RenderObject with RenderObjectWithChildMixin<R
 class Center extends StatelessComponent {
   const Center({
     super.key,
+    this.widthFactor,
+    this.heightFactor,
     required this.child,
   });
 
+  final double? widthFactor;
+  final double? heightFactor;
   final Component child;
 
   @override
   Component build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
+      widthFactor: widthFactor,
+      heightFactor: heightFactor,
       child: child,
     );
   }

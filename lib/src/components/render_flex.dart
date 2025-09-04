@@ -116,10 +116,12 @@ class RenderFlex extends RenderObject with ContainerRenderObjectMixin<RenderObje
   }
 
   BoxConstraints _getChildConstraints(BoxConstraints constraints, double? maxMainAxisExtent) {
+    // For non-flex children (when maxMainAxisExtent is null), pass infinite constraint along the main axis
+    // This matches Flutter's behavior in _constraintsForNonFlexChild
     return direction == Axis.horizontal
         ? BoxConstraints(
             minWidth: 0,
-            maxWidth: maxMainAxisExtent ?? constraints.maxWidth,
+            maxWidth: maxMainAxisExtent ?? double.infinity,  // Pass infinity for non-flex children
             minHeight: 0,
             maxHeight: constraints.maxHeight,
           )
@@ -127,7 +129,7 @@ class RenderFlex extends RenderObject with ContainerRenderObjectMixin<RenderObje
             minWidth: 0,
             maxWidth: constraints.maxWidth,
             minHeight: 0,
-            maxHeight: maxMainAxisExtent ?? constraints.maxHeight,
+            maxHeight: maxMainAxisExtent ?? double.infinity,  // Pass infinity for non-flex children
           );
   }
 
